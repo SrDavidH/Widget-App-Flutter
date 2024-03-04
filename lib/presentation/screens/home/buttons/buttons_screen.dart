@@ -68,6 +68,7 @@ class _ButtonView extends StatelessWidget {
               icon: const Icon(Icons.account_box_outlined),
               label: const Text('Text Icon')
               ),
+              const CustomButton(),
 
               IconButton(onPressed: (){}, icon: const Icon(Icons.app_registration_rounded)),
               IconButton(
@@ -81,6 +82,32 @@ class _ButtonView extends StatelessWidget {
           ],
       
       ),),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final colors = Theme.of(context).colorScheme;
+
+
+    return ClipRRect(// es para poder bordear los botones
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: (){},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text('Hola Mundo', style: TextStyle(color: Colors.white)
+            )
+          ),
+        ),
+      ),
     );
   }
 }
